@@ -1,0 +1,227 @@
+.programmes-page .courses-section {
+  padding: 88px 0;
+  background: var(--white);
+}
+
+.programmes-page .course-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.programmes-page .course-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px 22px;
+  background: var(--green-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+.programmes-page .course-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--green);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+}
+
+.programmes-page .course-number {
+  flex-shrink: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--green);
+}
+
+.programmes-page .course-card p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  color: var(--text);
+}
+
+.programmes-page .alliances-section {
+  padding: 88px 0;
+  background: var(--green-dark);
+}
+
+.programmes-page .alliances-section .section-tag {
+  color: var(--white);
+  border-bottom-color: var(--accent-light);
+}
+
+.programmes-page .alliances-section .section-title {
+  color: var(--white);
+}
+
+.programmes-page .alliances-section .section-sub {
+  color: rgba(255,255,255,0.8);
+}
+
+.programmes-page .alliance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.programmes-page .alliance-card {
+  padding: 32px 26px;
+  text-align: center;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.programmes-page .alliance-card:hover {
+  background: rgba(255,255,255,0.14);
+  transform: translateY(-4px);
+}
+
+.programmes-page .alliance-icon {
+  margin-bottom: 14px;
+  font-size: 30px;
+  color: var(--accent-light);
+}
+
+.programmes-page .alliance-card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--white);
+}
+
+.programmes-page .alliance-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: rgba(255,255,255,0.85);
+}
+
+.programmes-page .impact-section {
+  padding: 88px 0;
+  background: var(--white);
+}
+
+.programmes-page .impact-inner {
+  display: flex;
+  gap: 72px;
+  align-items: center;
+}
+
+.programmes-page .impact-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.programmes-page .impact-text p {
+  font-size: 15px;
+  line-height: 25px;
+  color: #000;
+}
+
+.programmes-page .impact-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+}
+
+.programmes-page .impact-list li {
+  position: relative;
+  padding: 6px 0 6px 30px;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.programmes-page .impact-list li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 14px;
+  width: 12px;
+  height: 7px;
+  border-left: 2px solid var(--green);
+  border-bottom: 2px solid var(--green);
+  transform: rotate(-45deg);
+}
+
+.programmes-page .impact-stats {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 340px;
+}
+
+.programmes-page .impact-stat {
+  padding: 32px 24px;
+  text-align: center;
+  background: var(--green-bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--green);
+  border-radius: 12px;
+}
+
+.programmes-page .impact-number {
+  margin-bottom: 6px;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--green);
+  font-variant-numeric: tabular-nums;
+}
+
+.programmes-page .impact-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@media (max-width: 960px) {
+  .programmes-page .courses-section,
+  .programmes-page .alliances-section,
+  .programmes-page .impact-section {
+    padding: 56px 0;
+  }
+
+  .programmes-page .course-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .programmes-page .alliance-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .programmes-page .impact-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 36px;
+  }
+
+  .programmes-page .impact-stats {
+    width: 100%;
+    flex-direction: row;
+  }
+
+  .programmes-page .impact-stat {
+    flex: 1;
+  }
+}
+
+@media (max-width: 520px) {
+  .programmes-page .course-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .programmes-page .impact-stats {
+    flex-direction: column;
+  }
+
+  .programmes-page .impact-number {
+    font-size: 44px;
+  }
+}

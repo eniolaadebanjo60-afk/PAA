@@ -1,0 +1,113 @@
+.partnership-page .partner-intro-section {
+  padding: 88px 0;
+  background: var(--white);
+}
+
+.partnership-page .partner-intro-inner {
+  display: flex;
+  gap: 72px;
+  align-items: center;
+}
+
+.partnership-page .partner-intro-image-wrap {
+  flex-shrink: 0;
+  width: 460px;
+}
+
+.partnership-page .partnership-image {
+  width: 100%;
+  height: 420px;
+  border-radius: 12px;
+  background: #000;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.12);
+}
+
+.partnership-page .partner-intro-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.partnership-page .partner-intro-text p {
+  font-size: 15px;
+  line-height: 25px;
+  color: #000;
+}
+
+.partnership-page .partner-intro-text .btn-primary {
+  margin-top: 8px;
+}
+
+.partnership-page .benefits-section {
+  padding: 88px 0;
+  background: var(--green-bg);
+}
+
+.partnership-page .benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.partnership-page .benefit-card {
+  padding: 32px 24px;
+  text-align: center;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--green);
+  border-radius: 12px;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.partnership-page .benefit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
+.partnership-page .benefit-icon {
+  margin-bottom: 14px;
+  font-size: 28px;
+  color: var(--green);
+}
+
+.partnership-page .benefit-card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.partnership-page .benefit-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 960px) {
+  .partnership-page .partner-intro-section,
+  .partnership-page .benefits-section {
+    padding: 56px 0;
+  }
+
+  .partnership-page .partner-intro-inner {
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .partnership-page .partner-intro-image-wrap {
+    width: 100%;
+  }
+
+  .partnership-page .partnership-image {
+    height: 260px;
+  }
+
+  .partnership-page .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .partnership-page .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}

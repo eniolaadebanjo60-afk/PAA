@@ -1,25 +1,29 @@
+.partnership-page .partnership-hero {
+  padding: 140px 0;
+  background:
+    linear-gradient(
+      100deg,
+      rgba(10, 58, 29, 0.9) 0%,
+      rgba(14, 77, 31, 0.6) 50%,
+      rgba(14, 77, 31, 0.4) 100%
+    ),
+    url('../assets/paa-slide1.jpg') center/cover no-repeat;
+}
+
+.partnership-page .partnership-hero h1 {
+  font-size: 72px;
+  letter-spacing: -1.5px;
+}
+
 .partnership-page .partner-intro-section {
-  padding: 88px 0;
-  background: var(--white);
+  padding: 100px 0;
+  background: var(--grey-section);
 }
 
 .partnership-page .partner-intro-inner {
   display: flex;
   gap: 72px;
-  align-items: center;
-}
-
-.partnership-page .partner-intro-image-wrap {
-  flex-shrink: 0;
-  width: 460px;
-}
-
-.partnership-page .partnership-image {
-  width: 100%;
-  height: 420px;
-  border-radius: 12px;
-  background: #000;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.12);
+  align-items: flex-start;
 }
 
 .partnership-page .partner-intro-text {
@@ -27,87 +31,99 @@
   min-width: 0;
 }
 
+.partnership-page .partner-intro-heading {
+  font-size: 52px;
+  line-height: 60px;
+  color: var(--green-deep);
+  margin-bottom: 24px;
+}
+
 .partnership-page .partner-intro-text p {
   font-size: 15px;
-  line-height: 25px;
-  color: #000;
+  line-height: 26px;
+  color: var(--text);
+  margin-bottom: 18px;
 }
 
-.partnership-page .partner-intro-text .btn-primary {
-  margin-top: 8px;
+.partnership-page .partner-subhead {
+  margin: 32px 0 14px !important;
+  font-size: 16px !important;
+  font-weight: 700;
+  color: var(--green-deep);
 }
 
-.partnership-page .benefits-section {
-  padding: 88px 0;
-  background: var(--green-bg);
-}
-
-.partnership-page .benefits-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.partnership-page .benefit-card {
-  padding: 32px 24px;
-  text-align: center;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-top: 4px solid var(--green);
-  border-radius: 12px;
-  transition: transform 0.25s, box-shadow 0.25s;
-}
-
-.partnership-page .benefit-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-}
-
-.partnership-page .benefit-icon {
-  margin-bottom: 14px;
-  font-size: 28px;
-  color: var(--green);
-}
-
-.partnership-page .benefit-card h3 {
-  margin-bottom: 10px;
-  font-size: 18px;
-  line-height: 25px;
-}
-
-.partnership-page .benefit-card p {
+.partnership-page .partner-list {
+  list-style: disc;
   margin: 0;
-  font-size: 14px;
-  line-height: 22px;
-  color: var(--text-muted);
+  padding-left: 22px;
+}
+
+.partnership-page .partner-list li {
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 25px;
+  color: var(--text);
+}
+
+.partnership-page .partner-intro-image-wrap {
+  flex-shrink: 0;
+  width: 560px;
+}
+
+.partnership-page .partner-intro-image {
+  width: 100%;
+  height: 560px;
+  background: url('../assets/paa-slide2.jpg') center/cover no-repeat;
+  border-radius: 20px 220px 20px 20px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.18);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.partnership-page .partner-intro-image:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.24);
 }
 
 @media (max-width: 960px) {
-  .partnership-page .partner-intro-section,
-  .partnership-page .benefits-section {
-    padding: 56px 0;
+  .partnership-page .partnership-hero {
+    padding: 80px 0;
+  }
+
+  .partnership-page .partnership-hero h1 {
+    font-size: 42px;
+  }
+
+  .partnership-page .partner-intro-section {
+    padding: 64px 0;
   }
 
   .partnership-page .partner-intro-inner {
     flex-direction: column;
-    gap: 36px;
+    gap: 40px;
   }
 
   .partnership-page .partner-intro-image-wrap {
     width: 100%;
   }
 
-  .partnership-page .partnership-image {
-    height: 260px;
+  .partnership-page .partner-intro-image {
+    height: 360px;
+    border-radius: 20px 140px 20px 20px;
   }
 
-  .partnership-page .benefits-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .partnership-page .partner-intro-heading {
+    font-size: 38px;
+    line-height: 46px;
   }
 }
 
 @media (max-width: 520px) {
-  .partnership-page .benefits-grid {
-    grid-template-columns: 1fr;
+  .partnership-page .partnership-hero h1 {
+    font-size: 34px;
+  }
+
+  .partnership-page .partner-intro-image {
+    height: 280px;
+    border-radius: 16px 100px 16px 16px;
   }
 }

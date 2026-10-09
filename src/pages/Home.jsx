@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
-import HeroSlider from '../components/HeroSlider'
+import HeroVideo from '../components/HeroVideo'
 import Partners from '../components/Partners'
 import Testimonials from '../components/Testimonial'
+import posts from '../data/posts.js'
+import PostCard from '../components/PostCard.jsx'
 import '../styles/home.css'
 
 const coreTracks = [
@@ -13,41 +15,19 @@ const coreTracks = [
 
 const featured = [
   {
-    icon: 'fa-solid fa-user-check',
     title: 'Personal Effectiveness & Growth',
-    items: [
-      'Adaptability',
-      'Attention to Details / Active Listening',
-      'Creativity and Innovation / Creative Thinking',
-      'Effective Stress Management',
-      'Emotional Intelligence',
-      'Improving Personal Effectiveness and Interpersonal Skills',
-    ],
+    image: null,
+    text: 'Adaptability, active listening, creative thinking, stress management and emotional intelligence.',
   },
   {
-    icon: 'fa-solid fa-chart-line',
+    title: 'Leadership & Management',
+    image: null,
+    text: 'Leading change, building high-performance teams and managing the workplace with confidence.',
+  },
+  {
     title: 'Business Growth & Strategy',
-    items: [
-      'Business Acumen',
-      'Proposal Development for a Successful Grant',
-      'Introduction to Resource Mobilization',
-      'Fundamentals of Grant Management',
-      'Successful Sales Strategy',
-      'Handling and Conversion of Objections to Opportunities',
-      'Negotiation Skills',
-    ],
-  },
-  {
-    icon: 'fa-solid fa-people-group',
-    title: 'Workplace Culture & Resilience',
-    items: [
-      'Employee Engagement and Career Development',
-      'Ethics and Innovative Work Behaviour',
-      'Ethics and Professionalism at Work',
-      'Improving Team Effectiveness and Understanding Team Dynamics',
-      'Managing Workplace Conflicts / Conflict Management',
-      'Understanding and Managing Corporate Culture',
-    ],
+    image: null,
+    text: 'Business acumen, grant management, resource mobilization, sales strategy and negotiation.',
   },
 ]
 
@@ -56,38 +36,33 @@ const trainingVideo = ''
 export default function Home() {
   return (
     <div className="home-page">
-      <HeroSlider />
+      <HeroVideo />
       <Partners />
 
-      <section className="about-section">
-        <div className="section-inner about-inner">
-          <div className="about-image-wrap">
-            <div className="image-placeholder"></div>
-            <div className="about-badge">
-              <span className="badge-number">2018</span>
-              <span className="badge-label">Established</span>
-            </div>
+      <section className="who-section">
+        <div className="section-inner who-inner">
+          <div className="who-image-wrap">
+            <div className="who-image"></div>
           </div>
 
-          <div className="about-text">
-            <div className="section-tag">Who We Are</div>
-            <h2 className="section-title">
-              Nigeria's leading learning institution for agribusiness
-            </h2>
-            <p>
-              Premier Agribusiness Academy (PAA) is dedicated to equipping
-              individuals and organizations with the skills, knowledge, and
-              competencies needed to succeed in the agricultural and allied
-              sectors. Established in 2018 and headquartered at the IITA COOP
-              Guest House, opposite IITA, in the Moniya District of Ibadan, we
-              commenced the delivery of transformative training programs in 2019.
+          <div className="who-text">
+            <div className="section-tag who-tag">Who We Are</div>
+            <h2 className="section-title who-title">Who we are</h2>
+            <p className="who-lead">
+              Premier Agribusiness Academy (PAA) is Nigeria's leading learning
+              and development institution, dedicated to equipping individuals
+              and organizations with the skills, knowledge, and competencies
+              needed to succeed in the agricultural and allied sectors.
             </p>
-            <p>
-              Since then, we have grown into a trusted hub for innovative
+            <p className="who-body">
+              Established in 2018 and headquartered at the IITA COOP Guest
+              House, opposite IITA, in the Moniya District of Ibadan, we
+              commenced the delivery of transformative training programs in
+              2019. Since then, we have grown into a trusted hub for innovative
               agribusiness capacity development.
             </p>
-            <Link to="/about-us" className="btn-primary">
-              Read more &nbsp;<i className="fa-solid fa-arrow-right"></i>
+            <Link to="/about-us" className="btn-primary who-btn">
+              Read More &nbsp;<i className="fa-solid fa-arrow-right"></i>
             </Link>
           </div>
         </div>
@@ -97,20 +72,20 @@ export default function Home() {
         <div className="section-inner programmes-inner">
           <div className="programmes-text">
             <div className="section-tag">Our Programmes</div>
-            <h2 className="section-title">Practical training, real results</h2>
+            <h2 className="section-title">Our Programmes</h2>
             <p>
               Our programs are delivered through in-person training sessions,
               hybrid models, and strategic outreach in collaboration with
-              government and private institutions. Our core training tracks
-              focus on:
+              government and private institutions.
             </p>
-            <ul className="track-list">
+            <p>Our core training tracks focus on:</p>
+            <ul className="check-list">
               {coreTracks.map((track) => (
                 <li key={track}>{track}</li>
               ))}
             </ul>
             <Link to="/programmes" className="btn-primary">
-              Read more &nbsp;<i className="fa-solid fa-arrow-right"></i>
+              Read More &nbsp;<i className="fa-solid fa-arrow-right"></i>
             </Link>
           </div>
 
@@ -126,38 +101,46 @@ export default function Home() {
                 ></iframe>
               </div>
             ) : (
-              <div className="video-frame video-empty">
-                <i className="fa-solid fa-circle-play"></i>
-              </div>
+              <div className="programmes-image"></div>
             )}
           </div>
         </div>
       </section>
 
-            <section className="features-section">
+      
+      <section className="features-section">
         <div className="section-inner">
           <div className="section-header" style={{ textAlign: 'center' }}>
-            <div className="section-tag">Featured Programmes</div>
-            <h2 className="section-title">Learn skills that move your career forward</h2>
-            <p className="section-sub">
-              Our participants share how Premier AgriBusiness Academy shaped
-              their journey.
-            </p>
+            <h2 className="features-title">Featured Programmes</h2>
           </div>
 
           <div className="features-grid">
-            {featured.map((group) => (
-              <div className="feature-card" key={group.title}>
-                <div className="feature-icon">
-                  <i className={group.icon}></i>
+            {featured.map((item) => (
+              <Link to="/programmes" className="feature-card" key={item.title}>
+                <div className="feature-img">
+                  {item.image ? (
+                    <img src={item.image} alt={item.title} />
+                  ) : (
+                    <div className="feature-placeholder">
+                      <span>{item.title}</span>
+                    </div>
+                  )}
                 </div>
-                <h3>{group.title}</h3>
-                <ul>
-                  {group.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="news-preview-section">
+        <div className="section-inner">
+          <div className="section-header" style={{ textAlign: 'center' }}>
+            <h2 className="news-preview-title">Read Latest News</h2>
+          </div>
+
+          <div className="news-preview-grid">
+            {posts.slice(0, 3).map((post) => (
+              <PostCard key={post.id} post={post} />
             ))}
           </div>
         </div>

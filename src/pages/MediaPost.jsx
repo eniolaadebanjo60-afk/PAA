@@ -8,12 +8,14 @@ export default function MediaPost() {
 
   if (!post) {
     return (
-      <div className="media-page">
-        <section className="post-section">
-          <div className="section-inner post-inner">
+      <div className="media-post-page">
+        <section className="not-found-section">
+          <div className="section-inner">
             <h2>Post not found</h2>
             <p>We could not find that article.</p>
-            <Link to="/media" className="btn-primary">Back to all posts</Link>
+            <Link to="/media" className="btn-primary">
+              Back to all posts
+            </Link>
           </div>
         </section>
       </div>
@@ -21,13 +23,13 @@ export default function MediaPost() {
   }
 
   return (
-    <div className="media-page">
-      <section className="page-hero">
+    <div className="media-post-page">
+      <section className="page-hero media-post-hero">
         <div className="section-inner">
+          <span className="post-hero-meta">
+            {post.category} &nbsp;·&nbsp; {post.date} &nbsp;·&nbsp; {post.author}
+          </span>
           <h1>{post.title}</h1>
-          <p>
-            {post.category} · {post.date} · {post.author}
-          </p>
         </div>
       </section>
 

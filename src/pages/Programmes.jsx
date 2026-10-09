@@ -1,4 +1,3 @@
-import CountUp from '../components/CountUp'
 import '../styles/programmes.css'
 
 const courses = [
@@ -6,7 +5,7 @@ const courses = [
   'Supply Chain and Logistics Management',
   'Poultry Value Chain Analysis',
   'Agronomy, Aquaculture, and Poultry Production Management',
-  '"Farming Farmers Farms": a philosophy and methodology for agricultural transformation',
+  '“Farming Farmers Farms” — a philosophy and methodology for agricultural transformation',
   'Advanced Stress Management for Agribusiness Professionals',
   'Strategic Techniques for Managing Upward',
   'Leading and Navigating Organisational Change',
@@ -30,19 +29,16 @@ const courses = [
 
 const alliances = [
   {
-    icon: 'fa-solid fa-wheat-awn',
     name: 'US Soybean Export Council (USSEC)',
-    text: 'Training in poultry, aquaculture, and feed management.',
+    text: 'Training in poultry, aquaculture, and feed management',
   },
   {
-    icon: 'fa-solid fa-seedling',
     name: 'International Institute of Tropical Agriculture (IITA)',
-    text: 'Joint programs in crop production and human capacity development.',
+    text: 'Joint programs in crop production and human capacity development',
   },
   {
-    icon: 'fa-solid fa-cow',
     name: 'Nigeria Institute of Animal Science (NIAS)',
-    text: 'Support for livestock sector transformation.',
+    text: 'Support for livestock sector transformation',
   },
 ]
 
@@ -55,94 +51,73 @@ const improvements = [
 export default function Programmes() {
   return (
     <div className="programmes-page">
-      <section className="page-hero">
+      <section className="page-hero programmes-hero">
         <div className="section-inner">
           <h1>Programmes</h1>
-          <p>
-            Our programs are delivered through in-person training sessions,
-            hybrid models, and strategic outreach in collaboration with
-            government and private institutions.
-          </p>
         </div>
       </section>
 
-      <section className="courses-section">
-        <div className="section-inner">
-          <div className="section-header" style={{ textAlign: 'center' }}>
-            <div className="section-tag">Our Programs</div>
-            <h2 className="section-title">Our core training tracks</h2>
-          </div>
-
-          <div className="course-grid">
-            {courses.map((course, index) => (
-              <div className="course-card" key={course}>
-                <span className="course-number">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <p>{course}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="alliances-section">
-        <div className="section-inner">
-          <div className="section-header" style={{ textAlign: 'center' }}>
-            <div className="section-tag">Strategic Partnerships</div>
-            <h2 className="section-title">Working with global and local institutions</h2>
-            <p className="section-sub">
-              We work with global and local institutions to enhance training
-              quality and relevance.
+      <section className="programs-section">
+        <div className="section-inner programs-inner">
+          <div className="programs-text">
+            <h2 className="programs-heading">Our Programs</h2>
+            <p className="programs-lead">
+              Our programs are delivered through in-person training sessions,
+              hybrid models, and strategic outreach in collaboration with
+              government and private institutions.
             </p>
-          </div>
-
-          <div className="alliance-grid">
-            {alliances.map((item) => (
-              <div className="alliance-card" key={item.name}>
-                <div className="alliance-icon">
-                  <i className={item.icon}></i>
-                </div>
-                <h3>{item.name}</h3>
-                <p>{item.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="impact-section">
-        <div className="section-inner impact-inner">
-          <div className="impact-text">
-            <div className="section-tag">Impact and Reach</div>
-            <h2 className="section-title">Trained across Nigeria</h2>
-            <p>
-              Since its inception up to May 2025, Premier Agribusiness Academy
-              has trained over 3,000 participants through a combination of
-              virtual and in-person classes. Our programs emphasize small group
-              learning, maintaining an average class size of 25 to foster deep
-              understanding and immediate application.
-            </p>
-            <p>Our alumni have reported significant improvements in:</p>
-            <ul className="impact-list">
-              {improvements.map((item) => (
-                <li key={item}>{item}</li>
+            <p className="programs-lead">Our core training tracks focus on:</p>
+            <ul className="programs-list">
+              {courses.map((course) => (
+                <li key={course}>{course}</li>
               ))}
             </ul>
           </div>
 
-          <div className="impact-stats">
-            <div className="impact-stat">
-              <div className="impact-number">
-                <CountUp end={3000} suffix="+" />
-              </div>
-              <div className="impact-label">Participants trained</div>
+          <div className="programs-image-wrap">
+            <div className="programs-image"></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="partnerships-impact-section">
+        <div className="section-inner pi-inner">
+          <div className="pi-image-wrap">
+            <div className="pi-image"></div>
+          </div>
+
+          <div className="pi-text">
+            <div className="pi-block">
+              <h2>Strategic Partnerships</h2>
+              <p className="pi-lead">
+                We work with global and local institutions to enhance training
+                quality and relevance:
+              </p>
+              <ul className="pi-list">
+                {alliances.map((a) => (
+                  <li key={a.name}>
+                    <strong>{a.name}</strong> – {a.text}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="impact-stat">
-              <div className="impact-number">
-                <CountUp end={25} />
-              </div>
-              <div className="impact-label">Average class size</div>
+
+            <div className="pi-block">
+              <h2>Impact and Reach</h2>
+              <p className="pi-lead">
+                Since its inception up to May 2025, Premier Agribusiness
+                Academy has trained over <strong>3,000 participants</strong>{' '}
+                through a combination of virtual and in-person classes. Our
+                programs emphasize small group learning, maintaining an average
+                class size of 25 to foster deep understanding and immediate
+                application. Our alumni have reported significant improvements
+                in:
+              </p>
+              <ul className="pi-list">
+                {improvements.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

@@ -1,6 +1,5 @@
 import Paa from '../assets/paa-slide1.jpg'
 
-
 const posts = [
   {
     id: 'premier-agribusiness-academy-debuts-in-nigeria',
@@ -25,7 +24,7 @@ const posts = [
         type: 'p',
         text: 'He explained that there is a huge difference between agriculture and agribusiness, stressing that what makes agriculture a business is its ability to generate profit.',
       },
-    {
+      {
         type: 'quote',
         text: 'Agriculture becomes a business when it generates profit.',
         cite: 'Francis Toromade, Director General',
@@ -36,7 +35,7 @@ const posts = [
     id: 'iita-premier-agribusiness-sign-mou',
     image: Paa,
     alt: 'IITA and PAA MoU signing',
-    category: 'Agribusiness',
+    category: 'Crop Planting',
     date: 'May 19, 2021',
     title: 'IITA, Premier Agribusiness sign MoU to drive food security',
     excerpt:
@@ -57,7 +56,7 @@ const posts = [
     id: 'iita-premier-agribusiness-academy-unite',
     image: Paa,
     alt: 'Maize farm',
-    category: 'Agribusiness',
+    category: 'Poultry',
     date: 'May 23, 2025',
     title: 'IITA, Premier Agribusiness Academy unite on capacity building',
     excerpt:

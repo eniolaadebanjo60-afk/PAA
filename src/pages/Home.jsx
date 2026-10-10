@@ -13,6 +13,8 @@ const coreTracks = [
   '"Farming Farmers Farms": a philosophy and methodology for agricultural transformation',
 ]
 
+const whyVideo = 'https://www.youtube.com/embed/fWOWPf19koU?si=34fHeKUePYC_CevO'
+
 const featured = [
   {
     title: 'Personal Effectiveness & Growth',
@@ -107,7 +109,38 @@ export default function Home() {
         </div>
       </section>
 
-      
+      <section className="why-choose-section">
+        <div className="section-inner why-choose-inner">
+          <div className="why-choose-video-wrap">
+            {whyVideo ? (
+              <div className="video-frame">
+                <iframe
+                  src={whyVideo}
+                  title="Why Participants Choose Premier AgriBusiness Academy"
+                  loading="lazy"
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            ) : (
+              <div className="video-frame video-empty">
+                <i className="fa-solid fa-circle-play"></i>
+              </div>
+            )}
+          </div>
+
+          <div className="why-choose-text">
+            <h2 className="why-choose-heading">
+              Why Participants Choose<br />Premier AgriBusiness Academy
+            </h2>
+            <p className="why-choose-sub">
+              Our participants share how Premier AgriBusiness Academy shaped
+              their journey.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="features-section">
         <div className="section-inner">
           <div className="section-header" style={{ textAlign: 'center' }}>

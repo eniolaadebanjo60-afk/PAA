@@ -1,12 +1,15 @@
+import NN from '../assets/NN.jpg'
+import TA from '../assets/TA.jpg'
+
 const testimonials = [
   {
-    image: null,
+    image: NN,
     name: 'Ngozi Nwafor',
     role: 'Agribusiness Manager',
     text: 'Premier AgriBusiness Academy opened my eyes to the business side of agriculture. The training on leadership and business acumen helped me improve how I manage people and resources. I now approach agribusiness not just as production, but as a structured enterprise with growth potential.',
   },
   {
-    image: null,
+    image: TA,
     name: 'Tunde Akinpelu',
     role: 'Corporate Professional',
     text: 'What I gained from the Academy goes beyond agriculture. It\'s about personal and professional growth. From communication skills to resilience training, every session was practical and relevant. I feel more confident leading my team and making decisions in a fast-changing workplace.',

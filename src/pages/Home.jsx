@@ -4,6 +4,9 @@ import Partners from '../components/Partners'
 import Testimonials from '../components/Testimonial'
 import posts from '../data/posts.js'
 import PostCard from '../components/PostCard.jsx'
+import growth from '../assets/GROWTH.jpg'
+import leadership from '../assets/LEADERSHIP.jpg'
+import business from '../assets/BUSINESS.jpg'
 import '../styles/home.css'
 
 const coreTracks = [
@@ -18,17 +21,17 @@ const whyVideo = 'https://www.youtube.com/embed/fWOWPf19koU?si=34fHeKUePYC_CevO'
 const featured = [
   {
     title: 'Personal Effectiveness & Growth',
-    image: null,
+    image: growth,
     text: 'Adaptability, active listening, creative thinking, stress management and emotional intelligence.',
   },
   {
     title: 'Leadership & Management',
-    image: null,
+    image: leadership,
     text: 'Leading change, building high-performance teams and managing the workplace with confidence.',
   },
   {
     title: 'Business Growth & Strategy',
-    image: null,
+    image: business,
     text: 'Business acumen, grant management, resource mobilization, sales strategy and negotiation.',
   },
 ]
@@ -149,19 +152,20 @@ export default function Home() {
 
           <div className="features-grid">
             {featured.map((item) => (
-              <Link to="/programmes" className="feature-card" key={item.title}>
-                <div className="feature-img">
-                  {item.image ? (
-                    <img src={item.image} alt={item.title} />
-                  ) : (
-                    <div className="feature-placeholder">
-                      <span>{item.title}</span>
-                    </div>
-                  )}
-                </div>
-              </Link>
-            ))}
+        <Link to="/programmes" className="feature-card" key={item.title}>
+          <div className="feature-img">
+            {item.image ? (
+              <img src={item.image} alt={item.title} />
+            ) : (
+              <div className="feature-placeholder-img"></div>
+            )}
+            <div className="feature-overlay">
+              <h3 className="feature-title">{item.title}</h3>
+            </div>
           </div>
+        </Link>
+      ))}
+        </div>
         </div>
       </section>
 

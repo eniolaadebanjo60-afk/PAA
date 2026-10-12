@@ -16,7 +16,7 @@ const coreTracks = [
   '"Farming Farmers Farms": a philosophy and methodology for agricultural transformation',
 ]
 
-const whyVideo = 'https://www.youtube.com/embed/fWOWPf19koU?si=34fHeKUePYC_CevO'
+const whyVideo = 'https://www.youtube.com/embed/eoEtQMJCBsg?si=0bEx_KlEz7lsxxPN'
 
 const featured = [
   {

@@ -1,3 +1,4 @@
+
 .contact-page .contact-hero {
   padding: 140px 0;
   background:
@@ -136,6 +137,66 @@
 .contact-page .contact-info-text a:hover {
   color: var(--green);
   text-decoration: underline;
+}
+
+.contact-page .find-us-block {
+  margin-top: 8px;
+  padding: 24px;
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+}
+
+.contact-page .find-us-heading {
+  margin: 0 0 16px;
+  font-size: 22px;
+  color: var(--green-deep);
+  font-family: var(--heading);
+  font-weight: 700;
+}
+
+.contact-page .find-us-map {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.contact-page .find-us-map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: grayscale(0.15) contrast(1.02);
+  transition: filter 0.3s ease;
+}
+
+.contact-page .find-us-map:hover iframe {
+  filter: none;
+}
+
+.contact-page .find-us-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 24px;
+  background: var(--green);
+  color: var(--white);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.contact-page .find-us-btn:hover {
+  background: var(--green-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(10, 58, 29, 0.28);
 }
 
 .contact-page .faq-section {

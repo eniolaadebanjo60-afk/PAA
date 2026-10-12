@@ -27,6 +27,12 @@ const contactCards = [
   },
 ]
 
+const mapEmbed =
+  'https://www.google.com/maps?q=IITA%20COOP%20Guest%20House%20Moniya%20Ibadan&output=embed'
+
+const mapDirections =
+  'https://www.google.com/maps/dir/?api=1&destination=IITA+COOP+Guest+House+Moniya+Ibadan'
+
 const faqs = [
   {
     q: 'What is the goal of Premier Agribusiness Academy training programs?',
@@ -206,6 +212,32 @@ export default function Contact() {
                 </div>
               </div>
             ))}
+
+            <div className="find-us-block">
+              <h3 className="find-us-heading">Find Us</h3>
+
+              <div className="find-us-map">
+                <iframe
+                  title="Premier AgriBusiness Academy location"
+                  src={mapEmbed}
+                  width="100%"
+                  height="240"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+
+              <a
+                href={mapDirections}
+                target="_blank"
+                rel="noreferrer"
+                className="find-us-btn"
+              >
+                Get Directions &nbsp;<i className="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
           </div>
         </div>
       </section>

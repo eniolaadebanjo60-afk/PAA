@@ -8,8 +8,8 @@
   --green-bg: #f5faf6;
   --grey-section: #ececec;
   --blue: #2563eb;
-  --yellow: #f5c518;
-  --yellow-hover: #e0b000;
+  --yellow: var(--green);
+  --yellow-hover: var(--green-dark);
   --accent: #2a9d55;
   --accent-light: #8fe0ae;
   --text: #17261c;
@@ -157,7 +157,7 @@ img {
   font-family: 'Font Awesome 6 Free';
   font-weight: 900;
   font-size: 18px;
-  color: #1d6fe0;
+  color: var(--green);
 }
 
 nav {
@@ -507,6 +507,7 @@ footer a:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
+
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }

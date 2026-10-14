@@ -32,7 +32,7 @@
   border: none;
   border-radius: 6px;
   background: transparent;
-  color: var(--text-muted);
+  color: #000;
   font: 500 15px var(--sans);
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
@@ -40,12 +40,12 @@
 
 .media-page .media-tab:hover {
   background: rgba(0, 0, 0, 0.05);
-  color: var(--text);
+  color: #000;
 }
 
 .media-page .media-tab.active {
   background: var(--yellow);
-  color: var(--text);
+  color: var(--white);
   font-weight: 600;
 }
 
@@ -179,7 +179,7 @@
   gap: 8px;
   padding: 12px 28px;
   background: var(--yellow);
-  color: var(--text);
+  color: var(--white);
   border: none;
   border-radius: 4px;
   font: 600 14px var(--sans);

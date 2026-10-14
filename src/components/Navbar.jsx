@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import logo from '../assets/PAA.jpg'
+import logo from '../assets/PAA.png'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)

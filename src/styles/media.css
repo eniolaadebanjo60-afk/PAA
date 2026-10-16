@@ -7,7 +7,7 @@
       rgba(14, 77, 31, 0.6) 50%,
       rgba(14, 77, 31, 0.4) 100%
     ),
-    url('../assets/paa-slide1.jpg') center/cover no-repeat;
+    url('../assets/BLOG.jpeg') center 15%/cover no-repeat;
 }
 
 .media-page .media-hero h1 {

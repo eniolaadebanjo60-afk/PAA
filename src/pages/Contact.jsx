@@ -148,7 +148,7 @@ export default function Contact() {
     <div className="contact-page">
       <section className="page-hero contact-hero">
         <div className="section-inner">
-          <h1>Contact</h1>
+          <h1>Contact <span>Us</span></h1>
         </div>
       </section>
 

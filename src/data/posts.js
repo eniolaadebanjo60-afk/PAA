@@ -1,9 +1,11 @@
-import Toromade from '../assets/TOROMADE.jpg'
+import Who from '../assets/WHO.jpeg'
+import Partner from '../assets/PATNERSHIP.jpeg'
+import Capacity from '../assets/CAPACITY.jpeg'
 
 const posts = [
   {
     id: 'premier-agribusiness-academy-debuts-in-nigeria',
-    image: Toromade,
+    image: Who,
     alt: 'Premier Agribusiness Academy debut',
     category: 'Agribusiness',
     date: 'September 19, 2023',
@@ -33,7 +35,7 @@ const posts = [
   },
   {
     id: 'iita-premier-agribusiness-sign-mou',
-    image: null,
+    image: Partner,
     alt: 'IITA and PAA MoU signing',
     category: 'Crop Planting',
     date: 'May 19, 2021',
@@ -54,7 +56,7 @@ const posts = [
   },
   {
     id: 'iita-premier-agribusiness-academy-unite',
-    image: null,
+    image: Capacity,
     alt: 'Maize farm',
     category: 'Poultry',
     date: 'May 23, 2025',

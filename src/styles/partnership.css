@@ -7,7 +7,7 @@
       rgba(14, 77, 31, 0.6) 50%,
       rgba(14, 77, 31, 0.4) 100%
     ),
-    url('../assets/paa-slide1.jpg') center/cover no-repeat;
+    url('../assets/PARTNERSHIP_BANNER.jpeg') center 8%/cover no-repeat;
 }
 
 .partnership-page .partnership-hero h1 {
@@ -73,7 +73,7 @@
 .partnership-page .partner-intro-image {
   width: 100%;
   height: 560px;
-  background: url('../assets/paa-slide2.jpg') center/cover no-repeat;
+  background: url('../assets/PARTNERSHIP_WITH.jpeg') center/cover no-repeat;
   border-radius: 20px 220px 20px 20px;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.18);
   transition: transform 0.6s ease, box-shadow 0.6s ease;

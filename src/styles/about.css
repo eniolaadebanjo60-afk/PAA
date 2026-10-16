@@ -6,7 +6,7 @@
       rgba(14, 77, 31, 0.7) 45%,
       rgba(14, 77, 31, 0.55) 100%
     ),
-    url('../assets/paa-slide1.jpg') center/cover no-repeat;
+    url('../assets/ABOUT.png') center 30%/cover no-repeat;
   padding: 120px 0;
 }
 
@@ -53,7 +53,7 @@
 .about-page .story-image {
   width: 100%;
   height: 480px;
-  background: url('../assets/paa-slide2.jpg') center/cover no-repeat;
+  background: url('../assets/WHO.jpeg') center/cover no-repeat;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.18);
   transition: transform 0.6s ease, box-shadow 0.6s ease;
 }
@@ -70,7 +70,7 @@
 .about-page .band-section {
   position: relative;
   height: 340px;
-  background: url('../assets/paa-slide3.jpg') center/cover no-repeat;
+  background: url('../assets/EMPOWERING.jpeg') center 25%/cover no-repeat;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -120,7 +120,7 @@
 .about-page .history-image {
   width: 100%;
   height: 480px;
-  background: url('../assets/paa-slide1.jpg') center/cover no-repeat;
+  background: url('../assets/HISTORY.jpeg') center 20%/cover no-repeat;
   border-radius: 220px 20px 20px 20px;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.18);
   transition: transform 0.6s ease, box-shadow 0.6s ease;
@@ -306,8 +306,8 @@
 
 .about-page .mv-image {
   width: 100%;
-  height: 620px;
-  background: url('../assets/paa-slide3.jpg') center/cover no-repeat;
+  height: 600px;
+  background: url('../assets/MISSION.jpeg') center 40%/cover no-repeat;
   border-radius: 220px 20px 220px 20px;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
 }

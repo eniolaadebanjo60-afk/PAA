@@ -7,7 +7,7 @@
       rgba(14, 77, 31, 0.6) 50%,
       rgba(14, 77, 31, 0.4) 100%
     ),
-    url('../assets/paa-slide1.jpg') center/cover no-repeat;
+    url('../assets/CONSULTANCY.jpeg') center 30%/cover no-repeat;
 }
 
 .consultancy-page .consultancy-hero h1 {
@@ -78,7 +78,7 @@
 .consultancy-page .services-image {
   width: 100%;
   height: 720px;
-  background: url('../assets/paa-slide2.jpg') center/cover no-repeat;
+  background: url('../assets/CONSULTANT_SERV.jpeg') center/cover no-repeat;
   border-radius: 220px 20px 20px 20px;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.18);
   transition: transform 0.6s ease, box-shadow 0.6s ease;
@@ -92,7 +92,7 @@
 .consultancy-page .cta-band-section {
   position: relative;
   height: 360px;
-  background: url('../assets/paa-slide3.jpg') center/cover no-repeat;
+  background: url('../assets/EMPOWERING.jpeg') center 30%/cover no-repeat;
   overflow: hidden;
   display: flex;
   align-items: center;

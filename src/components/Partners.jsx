@@ -1,101 +1,116 @@
-import { Link } from 'react-router-dom'
-import Partners from '../components/Partners'
-import '../styles/partnership.css'
+import { useEffect, useRef } from 'react'
+import partners from '../data/partners'
 
-const benefits = [
-  {
-    icon: 'fa-solid fa-earth-africa',
-    title: 'World-Class Expertise',
-    text: 'Access to global networks, industry leaders, and cutting-edge agribusiness resources.'
-  },
-  {
-    icon: 'fa-solid fa-puzzle-piece',
-    title: 'Co-Created Programs',
-    text: 'Tailored training and consultancy solutions built specifically around your organizational goals.'
-  },
-  {
-    icon: 'fa-solid fa-shield-halved',
-    title: 'Resilient Systems',
-    text: 'A shared commitment to building sustainable and resilient agribusiness ecosystems.'
-  },
-  {
-    icon: 'fa-solid fa-bullhorn',
-    title: 'Wider Reach',
-    text: 'Amplify your impact and expand your footprint across communities and organizations.'
-  },
-]
+const loopList = [...partners, ...partners]
 
-export default function Partnership() {
+const GAP = 24
+const SPEED = 1 
+
+function getPeriod(track) {
+  return track.children[partners.length].offsetLeft - track.children[0].offsetLeft
+}
+
+export default function Partners() {
+  const trackRef = useRef(null)
+  const pausedRef = useRef(false)
+  const manualUntil = useRef(0)
+
+  useEffect(() => {
+    const track = trackRef.current
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    let frameId
+
+    const tick = () => {
+      const period = getPeriod(track)
+
+      if (!pausedRef.current && !reduceMotion && Date.now() > manualUntil.current) {
+        track.scrollLeft += SPEED
+      }
+
+      if (track.scrollLeft >= period) {
+        track.scrollLeft -= period
+      }
+
+      frameId = requestAnimationFrame(tick)
+    }
+
+    frameId = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(frameId)
+  }, [])
+
+  function slide(direction) {
+    const track = trackRef.current
+    const period = getPeriod(track)
+    const step = track.children[0].offsetWidth + GAP
+
+    manualUntil.current = Date.now() + 700
+
+    if (direction === -1 && track.scrollLeft < step) {
+      track.scrollTo({ left: track.scrollLeft + period, behavior: 'auto' })
+    }
+
+    track.scrollBy({ left: direction * step, behavior: 'smooth' })
+  }
+
   return (
-    <div className="partnership-page">
-      <section className="page-hero partnership-hero">
-        <div className="section-inner">
-          <h1>Partnership</h1>
-        </div>
-      </section>
+    <div className="partners-section">
+      <div className="section-inner">
+        <h3>Trusted by leading organizations worldwide</h3>
 
-      <section className="partner-intro-section">
-        <div className="section-inner partner-intro-inner">
-          <div className="partner-intro-text">
-            <h2 className="partner-intro-heading">Partner with Us</h2>
-            <p>
-              Collaboration is at the heart of Premier AgriBusiness Academy.
-              We believe that strong partnerships create lasting impact in
-              agribusiness, education, and workforce development. By working
-              with global institutions, industry leaders, and development
-              agencies, we deliver programs that are relevant, practical, and
-              transformative.
-            </p>
-            <p>
-              We are proud to have partnered with organizations such as the
-              International Institute of Tropical Agriculture (IITA), the US
-              SOY Excellence Center, and the Amo Group of Companies to drive
-              capacity building and sustainable growth across the agricultural
-              value chain.
-            </p>
-          </div>
+        <div
+          className="partners-slider"
+          onMouseEnter={() => (pausedRef.current = true)}
+          onMouseLeave={() => (pausedRef.current = false)}
+        >
+          <button
+            className="partners-btn partners-prev"
+            aria-label="Previous partners"
+            onClick={() => slide(-1)}
+          >
+            <i className="fa-solid fa-chevron-left"></i>
+          </button>
 
-          <div className="partner-intro-image-wrap">
-            <div className="partner-intro-image"></div>
-          </div>
-        </div>
-      </section>
+          <div className="partners-track" ref={trackRef}>
+            {loopList.map((partner, index) => {
+              const duplicate = index >= partners.length
+              const content = partner.logo ? (
+                <img src={partner.logo} alt={partner.name} />
+              ) : (
+                <span>{partner.name}</span>
+              )
 
-      <section className="benefits-section">
-        <div className="section-inner">
-          <div className="section-header" style={{ textAlign: 'center' }}>
-            <div className="section-tag">What We Bring</div>
-            <h2 className="section-title">Why Partner With Us?</h2>
-          </div>
-
-          <div className="benefits-grid">
-            {benefits.map((item) => (
-              <div className="benefit-card" key={item.title}>
-                <div className="benefit-icon">
-                  <i className={item.icon}></i>
+              return partner.url ? (
+                <a
+                  key={index}
+                  href={partner.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="partner-logo-box"
+                  aria-hidden={duplicate}
+                  tabIndex={duplicate ? -1 : 0}
+                >
+                  {content}
+                </a>
+              ) : (
+                <div
+                  key={index}
+                  className="partner-logo-box"
+                  aria-hidden={duplicate}
+                >
+                  {content}
                 </div>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </div>
-            ))}
+              )
+            })}
           </div>
-        </div>
-      </section>
 
-      <section className="partners-cta-section">
-        <div className="section-inner partners-cta-inner">
-          <div className="partners-cta-text">
-            <h2>Ready to create lasting impact?</h2>
-            <p>Join forces with us to drive agricultural transformation across Africa.</p>
-          </div>
-          <Link to="/contact-us" className="btn-white">
-            Become a Partner &nbsp;<i className="fa-solid fa-arrow-right"></i>
-          </Link>
+          <button
+            className="partners-btn partners-next"
+            aria-label="Next partners"
+            onClick={() => slide(1)}
+          >
+            <i className="fa-solid fa-chevron-right"></i>
+          </button>
         </div>
-      </section>
-
-      <div className="partners-slider-wrap">
-        <Partners />
       </div>
     </div>
   )

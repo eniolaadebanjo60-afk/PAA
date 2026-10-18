@@ -1,21 +1,26 @@
+import { Link } from 'react-router-dom'
 import '../styles/consultancy.css'
 
 const expertise = [
   {
+    icon: 'fa-solid fa-sitemap',
     name: 'Organizational Development',
-    text: 'strengthening systems, teams, and structures for agribusiness success.',
+    text: 'Strengthening systems, teams, and structures for agribusiness success.',
   },
   {
+    icon: 'fa-solid fa-chalkboard-user',
     name: 'Capacity Building',
-    text: 'designing and delivering bespoke training programs aligned with institutional goals.',
+    text: 'Designing and delivering bespoke training programs aligned with institutional goals.',
   },
   {
+    icon: 'fa-solid fa-users-gear',
     name: 'Workforce Development',
-    text: 'equipping employees with leadership, technical, and soft skills for improved performance.',
+    text: 'Equipping employees with leadership, technical, and soft skills for improved performance.',
   },
   {
+    icon: 'fa-solid fa-handshake-angle',
     name: 'Program Support & Advisory',
-    text: 'supporting agribusiness companies, donor agencies, and development projects with strategic insights.',
+    text: 'Supporting agribusiness companies, donor agencies, and development projects with strategic insights.',
   },
 ]
 
@@ -31,7 +36,7 @@ export default function Consultancy() {
       <section className="services-section">
         <div className="section-inner services-inner">
           <div className="services-text">
-            <h2 className="services-heading">Consultancy Services</h2>
+            <h2 className="services-heading">Beyond Training</h2>
             <p>
               At Premier Agribusiness Academy, we go beyond training
               individuals. We collaborate with organizations, institutions, and
@@ -47,25 +52,41 @@ export default function Consultancy() {
               expertise in program design, training delivery, and workforce
               development.
             </p>
-
-            <p className="services-subhead">Our Consultancy Expertise Includes:</p>
-            <ul className="services-list">
-              {expertise.map((item) => (
-                <li key={item.name}>
-                  <strong>{item.name}</strong> – {item.text}
-                </li>
-              ))}
-            </ul>
-
-            <p>
-              At Premier Agribusiness Academy, we combine industry knowledge
-              with practical solutions to help organizations thrive in a
-              rapidly evolving agribusiness landscape.
-            </p>
+            
+            <div className="services-cta">
+              <p>Need a tailored solution for your organization?</p>
+              <Link to="/contact-us" className="btn-primary">
+                Talk to our team &nbsp;<i className="fa-solid fa-arrow-right"></i>
+              </Link>
+            </div>
           </div>
 
           <div className="services-image-wrap">
             <div className="services-image"></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="expertise-section">
+        <div className="section-inner">
+          <div className="section-header" style={{ textAlign: 'center' }}>
+            <div className="section-tag">What We Do</div>
+            <h2 className="section-title">Our Consultancy Expertise</h2>
+            <p className="section-sub" style={{ color:'#000', fontWeight:'400', margin: '0 auto' }}>
+              We combine industry knowledge with practical solutions to help organizations thrive in a rapidly evolving agribusiness landscape.
+            </p>
+          </div>
+
+          <div className="expertise-grid">
+            {expertise.map((item) => (
+              <div className="expertise-card" key={item.name}>
+                <div className="expertise-icon">
+                  <i className={item.icon}></i>
+                </div>
+                <h3>{item.name}</h3>
+                <p>{item.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

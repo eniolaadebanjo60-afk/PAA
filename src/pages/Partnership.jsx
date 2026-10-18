@@ -1,11 +1,28 @@
 import Partners from '../components/Partners'
+import { Link } from 'react-router-dom'
 import '../styles/partnership.css'
 
 const benefits = [
-  'Access to world-class expertise and resources',
-  'Co-created training programs tailored to industry needs',
-  'Shared commitment to building resilient agribusiness systems',
-  'Broader reach and deeper impact in communities and organizations',
+  {
+    icon: 'fa-solid fa-earth-africa',
+    title: 'World-class expertise',
+    text: 'Access to world-class expertise and resources.'
+  },
+  {
+    icon: 'fa-solid fa-puzzle-piece',
+    title: 'Co-created programs',
+    text: 'Co-created training programs tailored to industry needs.'
+  },
+  {
+    icon: 'fa-solid fa-shield-halved',
+    title: 'Resilient systems',
+    text: 'Shared commitment to building resilient agribusiness systems.'
+  },
+  {
+    icon: 'fa-solid fa-bullhorn',
+    title: 'Wider reach',
+    text: 'Broader reach and deeper impact in communities and organizations.'
+  },
 ]
 
 export default function Partnership() {
@@ -36,13 +53,6 @@ export default function Partnership() {
               capacity building and sustainable growth across the agricultural
               value chain.
             </p>
-
-            <p className="partner-subhead">What Our Partnerships Bring:</p>
-            <ul className="partner-list">
-              {benefits.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
           </div>
 
           <div className="partner-intro-image-wrap">
@@ -51,7 +61,42 @@ export default function Partnership() {
         </div>
       </section>
 
-      <Partners />
+      <section className="benefits-section">
+        <div className="section-inner">
+          <div className="section-header" style={{ textAlign: 'center' }}>
+            <div className="section-tag">What We Bring</div>
+            <h2 className="section-title">Why Partner With Us?</h2>
+          </div>
+
+          <div className="benefits-grid">
+            {benefits.map((item) => (
+              <div className="benefit-card" key={item.title}>
+                <div className="benefit-icon">
+                  <i className={item.icon}></i>
+                </div>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="partners-cta-section">
+        <div className="section-inner partners-cta-inner">
+          <div className="partners-cta-text">
+            <h2>Ready to create lasting impact?</h2>
+            <p>Join forces with us to drive agricultural transformation across Africa.</p>
+          </div>
+          <Link to="/contact-us" className="btn-white">
+            Become a Partner &nbsp;<i className="fa-solid fa-arrow-right"></i>
+          </Link>
+        </div>
+      </section>
+
+      <div className="partners-slider-wrap">
+        <Partners />
+      </div>
     </div>
   )
 }

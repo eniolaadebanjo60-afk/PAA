@@ -119,7 +119,7 @@ export default function Home() {
               <div className="video-frame">
                 <iframe
                   src={whyVideo}
-                  title="Why Participants Choose Premier AgriBusiness Academy"
+                  title="Why Participants Choose Premier Agribusiness Academy"
                   loading="lazy"
                   allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -134,10 +134,10 @@ export default function Home() {
 
           <div className="why-choose-text">
             <h2 className="why-choose-heading">
-              Why Participants Choose<br />Premier AgriBusiness Academy
+              Why Participants Choose<br />Premier Agribusiness Academy
             </h2>
             <p className="why-choose-sub">
-              Our participants share how Premier AgriBusiness Academy shaped
+              Our participants share how Premier Agribusiness Academy shaped
               their journey.
             </p>
           </div>

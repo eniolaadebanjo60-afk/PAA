@@ -162,7 +162,7 @@ export default function About() {
           <div className="why-header">
             <h2 className="why-heading">Why Choose Us?</h2>
             <p className="why-sub">
-              At Premier AgriBusiness Academy, our results speak for themselves.
+              At Premier Agribusiness Academy, our results speak for themselves.
               With expert faculty, industry-relevant content, and practical
               learning approaches, we empower participants to grow their
               careers and businesses with confidence.

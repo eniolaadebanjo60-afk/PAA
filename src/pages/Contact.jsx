@@ -13,7 +13,14 @@ const contactCards = [
     icon: 'fa-solid fa-phone',
     title: 'Office Phone',
     lines: [
-      { text: '234 810 145 2322', href: 'tel:+2348101452322' },
+      { text: '+234 810 145 2322', href: 'tel:+2348101452322' },
+    ],
+  },
+  {
+    icon: 'fa-brands fa-whatsapp',
+    title: 'WhatsApp',
+    lines: [
+      { text: 'Chat with us directly', href: 'https://wa.me/2348101452322', external: true },
     ],
   },
   {
@@ -128,7 +135,15 @@ const faqs = [
 
 export default function Contact() {
   const [openIndex, setOpenIndex] = useState(0)
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [form, setForm] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: '',
+  })
+  const [submitted, setSubmitted] = useState(false)
 
   function toggle(index) {
     setOpenIndex(openIndex === index ? -1 : index)
@@ -140,57 +155,122 @@ export default function Contact() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    alert('Thanks for reaching out — we will get back to you shortly.')
-    setForm({ name: '', email: '', message: '' })
+    setSubmitted(true)
+    setForm({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: '',
+    })
+    setTimeout(() => setSubmitted(false), 5000)
   }
 
   return (
     <div className="contact-page">
       <section className="page-hero contact-hero">
         <div className="section-inner">
-          <h1>Contact <span>Us</span></h1>
+          <h1>Contact</h1>
         </div>
       </section>
 
       <section className="get-in-touch-section">
         <div className="section-inner get-in-touch-inner">
+          
           <div className="contact-form-card">
             <h2>Get In Touch with Us!</h2>
+            <p className="contact-form-sub">
+              Fill the form below and a member of our team will get back to you within 24 hours.
+            </p>
 
             <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-row">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your name"
-                  value={form.name}
-                  onChange={handleChange}
-                  required
-                />
+                <div className="form-group">
+                  <input
+                    type="text"
+                    name="firstName"
+                    placeholder="First Name *"
+                    value={form.firstName}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <input
+                    type="text"
+                    name="lastName"
+                    placeholder="Last Name *"
+                    value={form.lastName}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
               </div>
+
               <div className="form-row">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your email"
-                  value={form.email}
-                  onChange={handleChange}
-                  required
-                />
+                <div className="form-group">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email Address *"
+                    value={form.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone Number"
+                    value={form.phone}
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
+
               <div className="form-row">
-                <textarea
-                  name="message"
-                  placeholder="Your message"
-                  rows="5"
-                  value={form.message}
-                  onChange={handleChange}
-                  required
-                ></textarea>
+                <div className="form-group">
+                  <select
+                    name="subject"
+                    value={form.subject}
+                    onChange={handleChange}
+                    required
+                    className={form.subject ? "has-value" : ""}
+                  >
+                    <option value="" disabled>Select a Subject *</option>
+                    <option value="Training Enquiry">Training Enquiry</option>
+                    <option value="Consultancy">Consultancy</option>
+                    <option value="Partnership">Partnership</option>
+                    <option value="General Enquiry">General Enquiry</option>
+                  </select>
+                </div>
               </div>
-              <button type="submit" className="btn-primary">
+
+              <div className="form-row">
+                <div className="form-group">
+                  <textarea
+                    name="message"
+                    placeholder="Your Message *"
+                    rows="5"
+                    value={form.message}
+                    onChange={handleChange}
+                    required
+                  ></textarea>
+                </div>
+              </div>
+
+              <button type="submit" className="btn-primary submit-btn">
                 Send Message
               </button>
+
+              {submitted && (
+                <div className="form-success">
+                  <i className="fa-solid fa-circle-check"></i>
+                  Thank you! Your message has been sent successfully.
+                </div>
+              )}
             </form>
           </div>
 
@@ -204,7 +284,14 @@ export default function Contact() {
                   <h3>{card.title}</h3>
                   {card.lines.map((line, i) =>
                     line.href ? (
-                      <a key={i} href={line.href}>{line.text}</a>
+                      <a 
+                        key={i} 
+                        href={line.href}
+                        target={line.external ? "_blank" : undefined}
+                        rel={line.external ? "noreferrer" : undefined}
+                      >
+                        {line.text}
+                      </a>
                     ) : (
                       <p key={i}>{line.text}</p>
                     )
@@ -215,7 +302,6 @@ export default function Contact() {
 
             <div className="find-us-block">
               <h3 className="find-us-heading">Find Us</h3>
-
               <div className="find-us-map">
                 <iframe
                   title="Premier AgriBusiness Academy location"
@@ -228,24 +314,18 @@ export default function Contact() {
                   referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
-
-              <a
-                href={mapDirections}
-                target="_blank"
-                rel="noreferrer"
-                className="find-us-btn"
-              >
+              <a href={mapDirections} target="_blank" rel="noreferrer" className="find-us-btn">
                 Get Directions &nbsp;<i className="fa-solid fa-arrow-right"></i>
               </a>
             </div>
           </div>
+
         </div>
       </section>
 
       <section className="faq-section">
         <div className="section-inner">
           <h2 className="faq-heading">Frequently Asked Questions</h2>
-
           <div className="faq-list">
             {faqs.map((item, index) => (
               <div

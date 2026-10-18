@@ -16,7 +16,7 @@ export default function Navbar() {
   return (
     <nav>
       <Link to="/" className="nav-logo" onClick={closeMenu}>
-        <img src={logo} alt="Premier AgriBusiness Academy" />
+        <img src={logo} alt="Premier Agribusiness Academy" />
       </Link>
 
       <button

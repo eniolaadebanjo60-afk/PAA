@@ -22,7 +22,7 @@ export default function Partnership() {
           <div className="partner-intro-text">
             <h2 className="partner-intro-heading">Partner with Us</h2>
             <p>
-              Collaboration is at the heart of Premier AgriBusiness Academy.
+              Collaboration is at the heart of Premier Agribusiness Academy.
               We believe that strong partnerships create lasting impact in
               agribusiness, education, and workforce development. By working
               with global institutions, industry leaders, and development

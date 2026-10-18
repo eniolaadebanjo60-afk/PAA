@@ -33,7 +33,7 @@ export default function Consultancy() {
           <div className="services-text">
             <h2 className="services-heading">Consultancy Services</h2>
             <p>
-              At Premier AgriBusiness Academy, we go beyond training
+              At Premier Agribusiness Academy, we go beyond training
               individuals. We collaborate with organizations, institutions, and
               industry leaders to deliver tailored consultancy solutions. Our
               consultancy services focus on strengthening agribusiness systems,
@@ -58,7 +58,7 @@ export default function Consultancy() {
             </ul>
 
             <p>
-              At Premier AgriBusiness Academy, we combine industry knowledge
+              At Premier Agribusiness Academy, we combine industry knowledge
               with practical solutions to help organizations thrive in a
               rapidly evolving agribusiness landscape.
             </p>

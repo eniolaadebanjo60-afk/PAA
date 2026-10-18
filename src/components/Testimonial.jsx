@@ -4,7 +4,7 @@ const testimonials = [
   {
     name: 'Ngozi Nwafor',
     role: 'Agribusiness Manager',
-    text: 'Premier AgriBusiness Academy opened my eyes to the business side of agriculture. The training on leadership and business acumen helped me improve how I manage people and resources. I now approach agribusiness not just as production, but as a structured enterprise with growth potential.',
+    text: 'Premier Agribusiness Academy opened my eyes to the business side of agriculture. The training on leadership and business acumen helped me improve how I manage people and resources. I now approach agribusiness not just as production, but as a structured enterprise with growth potential.',
   },
   {
     name: 'Tunde Akinpelu',
@@ -14,7 +14,7 @@ const testimonials = [
   {
     name: 'Usman Danladi',
     role: 'HR Professional',
-    text: 'The sessions at Premier AgriBusiness Academy were eye-opening. I especially valued the focus on personal effectiveness and workplace culture. I have been able to apply these lessons in my organization, and the improvement in teamwork and productivity has been remarkable.',
+    text: 'The sessions at Premier Agribusiness Academy were eye-opening. I especially valued the focus on personal effectiveness and workplace culture. I have been able to apply these lessons in my organization, and the improvement in teamwork and productivity has been remarkable.',
   },
 ]
 

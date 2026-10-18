@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import '../styles/programmes.css'
 
 const courses = [
@@ -58,20 +59,30 @@ export default function Programmes() {
       </section>
 
       <section className="programs-section">
-        <div className="section-inner programs-inner">
-          <div className="programs-text">
-            <h2 className="programs-heading">Our Programs</h2>
-            <p className="programs-lead">
-              Our programs are delivered through in-person training sessions,
-              hybrid models, and strategic outreach in collaboration with
-              government and private institutions.
-            </p>
-            <p className="programs-lead">Our core training tracks focus on:</p>
-            <ul className="programs-list">
-              {courses.map((course) => (
-                <li key={course}>{course}</li>
-              ))}
-            </ul>
+        <div className="section-inner programs-inner"> 
+          <div className="programs-content-card">
+            <div className="programs-text">
+              <h2 className="programs-heading">Our Programs</h2>
+              <p className="programs-lead">
+                Our programs are delivered through in-person training sessions,
+                hybrid models, and strategic outreach in collaboration with
+                government and private institutions.
+              </p>
+              <p className="programs-lead">Our core training tracks focus on:</p>
+              
+              <ul className="programs-list">
+                {courses.map((course) => (
+                  <li key={course}>{course}</li>
+                ))}
+              </ul>
+     
+              <div className="programs-cta">
+                <p>Ready to elevate your agribusiness?</p>
+                <Link to="/contact-us" className="btn-primary programs-cta-btn">
+                  Register or Contact an Agent &nbsp;<i className="fa-solid fa-arrow-right"></i>
+                </Link>
+              </div>
+            </div>
           </div>
 
           <div className="programs-image-wrap">

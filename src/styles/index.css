@@ -168,7 +168,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 8px 40px;
-  background: var(--green-deep);
+  background: var(--white);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -205,17 +205,17 @@ nav {
   padding: 8px 0;
   font-size: 14px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--green-dark);
   text-decoration: none;
   transition: color 0.25s ease;
 }
 
 .nav-links a:hover {
-  color: var(--white);
+  color: var(--green);
 }
 
 .nav-links a.active {
-  color: var(--white);
+  color: var(--green-deep);
   font-weight: 600;
 }
 
@@ -226,7 +226,7 @@ nav {
   bottom: -2px;
   width: 0;
   height: 2px;
-  background: var(--accent-light);
+  background: var(--green-dark);
   border-radius: 2px;
   transform: translateX(-50%);
   transition: width 0.3s cubic-bezier(0.65, 0, 0.35, 1);

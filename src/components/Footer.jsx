@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <div className="footer-logo-text">
-              <strong>Premier AgriBusiness Academy</strong>
+              <strong>Premier Agribusiness Academy</strong>
               <small>Shape the Future You Deserve</small>
             </div>
             <p>
@@ -46,7 +46,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <span>© {year} Premier AgriBusiness Academy. All rights reserved.</span>
+          <span>© {year} Premier Agribusiness Academy. All rights reserved.</span>
         </div>
       </div>
     </footer>

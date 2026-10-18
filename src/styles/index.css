@@ -169,7 +169,7 @@ nav {
   justify-content: space-between;
   padding: 8px 40px;
   background: var(--white);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .nav-logo {
@@ -246,7 +246,7 @@ nav {
   margin-left: 12px;
   padding: 0;
   font-size: 26px;
-  color: var(--white);
+  color: var(--green-dark);
   background: none;
   border: 0;
   cursor: pointer;
@@ -508,7 +508,6 @@ footer a:hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: none; }
@@ -559,8 +558,9 @@ section[id] {
     left: 0;
     right: 0;
     padding: 0 20px;
-    background: var(--green-deep);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -646,7 +646,7 @@ section[id] {
   }
 
   .nav-logo img {
-    width: 80px;
-    height: 44px;
+    width: 60px;
+    height: 50px;
   }
 }

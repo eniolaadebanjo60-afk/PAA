@@ -1,14 +1,9 @@
-import { useState, useEffect } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import logo from '../assets/PAA.png'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
-  const { pathname } = useLocation()
-
-  useEffect(() => {
-    setOpen(false)
-  }, [pathname])
 
   const linkClass = ({ isActive }) => (isActive ? 'active' : '')
   const closeMenu = () => setOpen(false)
@@ -22,9 +17,10 @@ export default function Navbar() {
       <button
         className="menu-toggle"
         aria-label="Toggle menu"
+        aria-expanded={open}
         onClick={() => setOpen(!open)}
       >
-        <i className={open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'}></i>
+        <i className={open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'} aria-hidden="true"></i>
       </button>
 
       <ul className={open ? 'nav-links open' : 'nav-links'}>

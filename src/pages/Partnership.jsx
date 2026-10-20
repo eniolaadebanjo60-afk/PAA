@@ -1,101 +1,101 @@
-import Partners from '../components/Partners'
-import { Link } from 'react-router-dom'
-import '../styles/partnership.css'
+import { useEffect, useRef } from 'react'
+import partners from '../data/partners'
 
-const benefits = [
-  {
-    icon: 'fa-solid fa-earth-africa',
-    title: 'World-class expertise',
-    text: 'Access to world-class expertise and resources.'
-  },
-  {
-    icon: 'fa-solid fa-puzzle-piece',
-    title: 'Co-created programs',
-    text: 'Co-created training programs tailored to industry needs.'
-  },
-  {
-    icon: 'fa-solid fa-shield-halved',
-    title: 'Resilient systems',
-    text: 'Shared commitment to building resilient agribusiness systems.'
-  },
-  {
-    icon: 'fa-solid fa-bullhorn',
-    title: 'Wider reach',
-    text: 'Broader reach and deeper impact in communities and organizations.'
-  },
-]
+const loopList = [...partners, ...partners]
+const GAP = 24
+const SPEED = 1 
 
-export default function Partnership() {
+export default function Partners() {
+  const trackRef = useRef(null)
+  const pausedRef = useRef(false)
+  const manualUntil = useRef(0)
+  const periodRef = useRef(0)
+
+  useEffect(() => {
+    const track = trackRef.current
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    let frameId
+
+    const calculatePeriod = () => {
+      if (!track || !track.children[partners.length]) return
+      periodRef.current = track.children[partners.length].offsetLeft - track.children[0].offsetLeft
+    }
+
+    calculatePeriod()
+    window.addEventListener('resize', calculatePeriod)
+
+    const tick = () => {
+      const period = periodRef.current
+
+      if (!pausedRef.current && !reduceMotion && Date.now() > manualUntil.current && period > 0) {
+        track.scrollLeft += SPEED
+      }
+
+      if (period > 0 && track.scrollLeft >= period) {
+        track.scrollLeft -= period
+      }
+
+      frameId = requestAnimationFrame(tick)
+    }
+
+    frameId = requestAnimationFrame(tick)
+    
+    return () => {
+      cancelAnimationFrame(frameId)
+      window.removeEventListener('resize', calculatePeriod)
+    }
+  }, [])
+
+  function slide(direction) {
+    const track = trackRef.current
+    const period = periodRef.current
+    if (!track || !period) return
+    
+    const step = track.children[0].offsetWidth + GAP
+    manualUntil.current = Date.now() + 700
+
+    if (direction === -1 && track.scrollLeft < step) {
+      track.scrollTo({ left: track.scrollLeft + period, behavior: 'auto' })
+    }
+    track.scrollBy({ left: direction * step, behavior: 'smooth' })
+  }
+
   return (
-    <div className="partnership-page">
-      <section className="page-hero partnership-hero">
-        <div className="section-inner">
-          <h1>Partnership</h1>
-        </div>
-      </section>
+    <div className="partners-section">
+      <div className="section-inner">
+        <h3>Trusted by leading organizations worldwide</h3>
+        <div
+          className="partners-slider"
+          onMouseEnter={() => (pausedRef.current = true)}
+          onMouseLeave={() => (pausedRef.current = false)}
+        >
+          <button className="partners-btn partners-prev" aria-label="Previous partners" onClick={() => slide(-1)}>
+            <i className="fa-solid fa-chevron-left" aria-hidden="true"></i>
+          </button>
+          <div className="partners-track" ref={trackRef}>
+            {loopList.map((partner, index) => {
+              const duplicate = index >= partners.length
+              const content = partner.logo ? (
+                <img src={partner.logo} alt={partner.name} />
+              ) : (
+                <span>{partner.name}</span>
+              )
 
-      <section className="partner-intro-section">
-        <div className="section-inner partner-intro-inner">
-          <div className="partner-intro-text">
-            <h2 className="partner-intro-heading">Partner with Us</h2>
-            <p>
-              Collaboration is at the heart of Premier Agribusiness Academy.
-              We believe that strong partnerships create lasting impact in
-              agribusiness, education, and workforce development. By working
-              with global institutions, industry leaders, and development
-              agencies, we deliver programs that are relevant, practical, and
-              transformative.
-            </p>
-            <p>
-              We are proud to have partnered with organizations such as the
-              International Institute of Tropical Agriculture (IITA), the US
-              SOY Excellence Center, and the Amo Group of Companies to drive
-              capacity building and sustainable growth across the agricultural
-              value chain.
-            </p>
-          </div>
-
-          <div className="partner-intro-image-wrap">
-            <div className="partner-intro-image"></div>
-          </div>
-        </div>
-      </section>
-
-      <section className="benefits-section">
-        <div className="section-inner">
-          <div className="section-header" style={{ textAlign: 'center' }}>
-            <div className="section-tag">What We Bring</div>
-            <h2 className="section-title">Why Partner With Us?</h2>
-          </div>
-
-          <div className="benefits-grid">
-            {benefits.map((item) => (
-              <div className="benefit-card" key={item.title}>
-                <div className="benefit-icon">
-                  <i className={item.icon}></i>
+              return partner.url ? (
+                <a key={index} href={partner.url} target="_blank" rel="noreferrer" className="partner-logo-box" aria-hidden={duplicate} tabIndex={duplicate ? -1 : 0}>
+                  {content}
+                </a>
+              ) : (
+                <div key={index} className="partner-logo-box" aria-hidden={duplicate}>
+                  {content}
                 </div>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </div>
-            ))}
+              )
+            })}
           </div>
+          <button className="partners-btn partners-next" aria-label="Next partners" onClick={() => slide(1)}>
+            <i className="fa-solid fa-chevron-right" aria-hidden="true"></i>
+          </button>
         </div>
-      </section>
-
-      <section className="partners-cta-section">
-        <div className="section-inner partners-cta-inner">
-          <div className="partners-cta-text">
-            <h2>Ready to create lasting impact?</h2>
-            <p>Join forces with us to drive agricultural transformation across Africa.</p>
-          </div>
-          <Link to="/contact-us" className="btn-white">
-            Become a Partner &nbsp;<i className="fa-solid fa-arrow-right"></i>
-          </Link>
-        </div>
-      </section>
-
-      <div className="partners-slider-wrap">
-        <Partners />
       </div>
     </div>
   )

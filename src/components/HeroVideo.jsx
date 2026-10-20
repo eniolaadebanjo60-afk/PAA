@@ -13,7 +13,7 @@ export default function HeroVideo() {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
       />
 
       <div className="hero-video-overlay"></div>
@@ -33,7 +33,7 @@ export default function HeroVideo() {
             agricultural value chain.
           </p>
           <Link to="/about-us" className="btn-primary hero-video-btn">
-            See More Details &nbsp;<i className="fa-solid fa-arrow-right"></i>
+            See More Details &nbsp;<i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </Link>
         </div>
       </div>

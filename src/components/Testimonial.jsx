@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const testimonials = [
   {
     name: 'Ngozi Nwafor',
     role: 'Agribusiness Manager',
-    text: 'Premier Agribusiness Academy opened my eyes to the business side of agriculture. The training on leadership and business acumen helped me improve how I manage people and resources. I now approach agribusiness not just as production, but as a structured enterprise with growth potential.',
+    text: 'Premier AgriBusiness Academy opened my eyes to the business side of agriculture. The training on leadership and business acumen helped me improve how I manage people and resources. I now approach agribusiness not just as production, but as a structured enterprise with growth potential.',
   },
   {
     name: 'Tunde Akinpelu',
@@ -14,13 +14,16 @@ const testimonials = [
   {
     name: 'Usman Danladi',
     role: 'HR Professional',
-    text: 'The sessions at Premier Agribusiness Academy were eye-opening. I especially valued the focus on personal effectiveness and workplace culture. I have been able to apply these lessons in my organization, and the improvement in teamwork and productivity has been remarkable.',
+    text: 'The sessions at Premier AgriBusiness Academy were eye-opening. I especially valued the focus on personal effectiveness and workplace culture. I have been able to apply these lessons in my organization, and the improvement in teamwork and productivity has been remarkable.',
   },
 ]
 
 export default function Testimonials() {
   const [current, setCurrent] = useState(0)
   const [paused, setPaused] = useState(false)
+  
+  const touchStartX = useRef(0)
+  const touchEndX = useRef(0)
 
   useEffect(() => {
     if (paused) return
@@ -29,6 +32,21 @@ export default function Testimonials() {
     }, 6000)
     return () => clearTimeout(timer)
   }, [current, paused])
+
+  function handleTouchStart(e) {
+    touchStartX.current = e.targetTouches[0].clientX
+  }
+
+  function handleTouchEnd(e) {
+    touchEndX.current = e.changedTouches[0].clientX
+    const diff = touchStartX.current - touchEndX.current
+
+    if (diff > 50) {
+      setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1))
+    } else if (diff < -50) {
+      setCurrent((c) => (c === 0 ? testimonials.length - 1 : c - 1))
+    }
+  }
 
   return (
     <section className="testimonials-section">
@@ -41,6 +59,8 @@ export default function Testimonials() {
           className="testimonial-slider"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           <div
             className="testimonial-track"
@@ -57,6 +77,18 @@ export default function Testimonials() {
             ))}
           </div>
         </div>
+
+        <div className="testimonial-dots">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              className={`testimonial-dot ${current === index ? 'active' : ''}`}
+              onClick={() => setCurrent(index)}
+              aria-label={`Go to testimonial ${index + 1}`}
+            />
+          ))}
+        </div>
+        
       </div>
     </section>
   )

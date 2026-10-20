@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
-export default function Footer() {
-  const year = new Date().getFullYear()
+const CURRENT_YEAR = new Date().getFullYear()
 
+export default function Footer() {
   return (
     <footer>
       <div className="footer-inner">
@@ -46,7 +46,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <span>© {year} Premier Agribusiness Academy. All rights reserved.</span>
+          <span>© {CURRENT_YEAR} Premier Agribusiness Academy. All rights reserved.</span>
         </div>
       </div>
     </footer>

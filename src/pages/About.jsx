@@ -72,6 +72,24 @@ const milestones = [
   },
 ]
 
+const leadership = [
+  {
+    name: 'Francis Toromade',
+    role: 'Director General',
+    image: null,
+  },
+  {
+    name: 'Executive Name',
+    role: 'Head of Operations',
+    image: null,
+  },
+  {
+    name: 'Executive Name',
+    role: 'Head of Training',
+    image: null,
+  },
+]
+
 export default function About() {
   return (
     <div className="about-page">
@@ -157,12 +175,44 @@ export default function About() {
         </div>
       </section>
 
+      <section className="team-section">
+        <div className="section-inner">
+          <div className="section-header" style={{ textAlign: 'center' }}>
+            <div className="section-tag">Our Leadership</div>
+            <h2 className="section-title">Meet the Experts</h2>
+            <p className="section-sub" style={{ margin: '0 auto' }}>
+              The visionaries driving agricultural transformation and capacity building across Africa.
+            </p>
+          </div>
+
+          <div className="team-grid">
+            {leadership.map((member) => (
+              <div className="team-card" key={member.name}>
+                <div className="team-image-wrap">
+                  {member.image ? (
+                    <img src={member.image} alt={member.name} className="team-image" />
+                  ) : (
+                    <div className="team-placeholder">
+                      {member.name.split(' ').map((n) => n[0]).join('')}
+                    </div>
+                  )}
+                </div>
+                <div className="team-info">
+                  <h3>{member.name}</h3>
+                  <p>{member.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="why-section">
         <div className="section-inner">
           <div className="why-header">
             <h2 className="why-heading">Why Choose Us?</h2>
             <p className="why-sub">
-              At Premier Agribusiness Academy, our results speak for themselves.
+              At Premier AgriBusiness Academy, our results speak for themselves.
               With expert faculty, industry-relevant content, and practical
               learning approaches, we empower participants to grow their
               careers and businesses with confidence.

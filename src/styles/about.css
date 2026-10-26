@@ -150,6 +150,84 @@
   color: var(--text);
 }
 
+.about-page .team-section {
+  padding: 100px 0;
+  background: var(--white);
+}
+
+.about-page .team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.about-page .team-card {
+  background: var(--grey-section);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-page .team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.about-page .team-image-wrap {
+  width: 100%;
+  height: 340px;
+  background: var(--green-bg);
+  overflow: hidden;
+}
+
+.about-page .team-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.about-page .team-card:hover .team-image {
+  transform: scale(1.05);
+}
+
+.about-page .team-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  font-family: var(--heading);
+  font-weight: 700;
+  color: var(--green-light);
+  background: var(--green-bg);
+}
+
+.about-page .team-info {
+  padding: 24px;
+  text-align: center;
+  background: var(--white);
+}
+
+.about-page .team-info h3 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  color: var(--green-deep);
+  font-family: var(--heading);
+}
+
+.about-page .team-info p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--green);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 .about-page .why-section {
   padding: 100px 0;
   background: var(--grey-section);
@@ -476,7 +554,8 @@
   .about-page .history-section,
   .about-page .why-section,
   .about-page .mv-section,
-  .about-page .milestones-section {
+  .about-page .milestones-section,
+  .about-page .team-section {
     padding: 64px 0;
   }
 
@@ -525,6 +604,14 @@
   .about-page .mv-block h2 {
     font-size: 34px;
     line-height: 42px;
+  }
+
+  .about-page .team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-page .team-image-wrap {
+    height: 400px;
   }
 
   .about-page .timeline::before {
